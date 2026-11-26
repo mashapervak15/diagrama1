@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Діаграма Ганта — Первак Марія</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap">
+<style>
+:root{--ink:#12263F;--bg:#EEF2F7;--mut:#566A82;--c0:#2F5BEA;--c1:#14A39A;--c2:#F2A33A;--c3:#E5536B;--ln:#D3DCE8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#0A1424;font-family:Onest,system-ui,"Segoe UI",sans-serif;color:var(--ink)}
+#st{position:absolute;left:50%;top:50%;width:1280px;height:720px;margin:-360px 0 0 -640px;transform-origin:center}
+.s{position:absolute;inset:0;padding:44px 64px 40px;background:var(--bg);opacity:0;visibility:hidden;transform:translateX(60px);transition:opacity .6s,transform .6s,visibility 0s .6s}
+.s.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}.s.past{transform:translateX(-60px)}
+.dark{background:radial-gradient(circle at 80% 15%,#1D4C8C,#0E2140 62%);color:#fff}
+h1{font-size:50px;line-height:1.12;font-weight:800;letter-spacing:-.02em}h2{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
+.sub{font-size:21px;color:var(--mut)}.dark .sub{color:#B9CBE4}
+.a{opacity:0;transform:translateY(18px)}.on .a{opacity:1;transform:none;transition:opacity .7s var(--d,0s),transform .7s var(--d,0s)}
+.cd{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:18px 22px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.src{position:absolute;left:64px;bottom:14px;font-size:14px;color:var(--mut)}
+.ph{background:linear-gradient(135deg,var(--a),var(--b));background-size:cover;background-position:center;border-radius:14px;display:grid;place-items:center;font-size:54px;flex:none}.ph.real{font-size:0}
+.cap{font-size:16px;color:var(--mut);margin-top:8px;line-height:1.35}
+/* gantt svg */
+.z{fill:rgba(18,38,63,.045)}.g{stroke:var(--ln)}.wk{fill:var(--mut);text-anchor:middle}.lbl{fill:var(--ink);font-weight:600}.ar{fill:var(--ink)}.ms{fill:var(--ink)}
+.dark .z{fill:rgba(255,255,255,.05)}.dark .g{stroke:rgba(255,255,255,.14)}.dark .ar{fill:#fff}.dark .ms{fill:var(--c2)}
+.bar{transform-box:fill-box;transform-origin:left;transform:scaleX(0)}.on .bar{transform:none;transition:transform .8s cubic-bezier(.2,.7,.2,1) var(--d)}
+.dp{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1}.dark .dp{stroke:#fff}.on .dp{stroke-dashoffset:0;transition:stroke-dashoffset .45s linear var(--d)}
+.fd{opacity:0}.on .fd{opacity:1;transition:opacity .5s var(--d)}
+.ms{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2)}.on .ms{opacity:1;transform:none;transition:opacity .5s var(--d),transform .5s var(--d)}
+.ring{fill:none;stroke:var(--c3);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}.dark .ring{stroke:var(--c2)}
+.on .ring{animation:rg 1.8s ease-out infinite calc(var(--d) + .6s)}@keyframes rg{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.4)}}
+/* slide specific */
+.hero{display:grid;grid-template-columns:1fr 640px;gap:36px;align-items:center;height:100%}
+.who{margin-top:34px;font-size:22px;line-height:1.5}.who b{font-weight:800}
+.r2{display:grid;grid-template-columns:290px 1fr;gap:32px;margin-top:14px}
+.def{font-size:24px;line-height:1.4;margin-bottom:14px}.fx{display:flex;gap:12px;font-size:19px;line-height:1.35;margin-top:10px;align-items:flex-start}.fx i{font-style:normal;font-size:26px}
+.tl{position:absolute;left:64px;right:64px;bottom:50px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.tl:before{content:"";position:absolute;left:0;right:0;top:12px;height:3px;background:var(--c0);transform-origin:left;transform:scaleX(0)}.on .tl:before{transform:none;transition:transform 2.4s linear .6s}
+.tl div{position:relative;padding-top:34px;font-size:16px;line-height:1.3}.tl div:before{content:"";position:absolute;top:4px;left:0;width:19px;height:19px;border-radius:50%;background:var(--c3);border:4px solid var(--bg)}
+.tl b{display:block;font-size:24px;font-weight:800;color:var(--c0)}
+.lg{display:flex;flex-direction:column;gap:10px}.lg div{display:flex;gap:12px;font-size:17px;line-height:1.3;align-items:center}.lg b{display:block;font-size:19px}
+.n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:16px}
+.steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:92px}
+.steps .ln{position:absolute;left:0;right:0;top:-34px;height:5px;border-radius:3px;background:var(--c0);transform-origin:left;transform:scaleX(0)}.on .steps .ln{transform:none;transition:transform 3.2s linear .3s}
+.stp{position:relative}.stp .n{position:absolute;top:-52px;left:0;width:38px;height:38px;font-size:19px}
+.stp h3{font-size:22px;margin:6px 0 8px}.stp p{font-size:17px;line-height:1.35;color:var(--mut)}
+.ic{font-size:52px;display:inline-block}.on .ic{animation:bn 2.4s ease-in-out infinite var(--d)}@keyframes bn{50%{transform:translateY(-8px)}}
+.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;font-size:17px;font-weight:600}.chips span{padding:7px 14px;border-radius:99px;background:#fff;border:1px solid var(--ln);display:flex;gap:8px;align-items:center}
+.chips i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.g6{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}.f{display:flex;gap:16px;padding:16px}.f .ph{width:118px;height:190px;font-size:52px}.f h3{font-size:23px;margin-bottom:6px}.f p{font-size:17px;line-height:1.35;color:var(--mut)}
+.cs{margin-top:18px}.cs .cd{padding:14px 18px}.cs h3{font-size:21px;display:flex;gap:12px;align-items:center;margin-bottom:6px}.cs .ph{width:54px;height:54px;font-size:28px;border-radius:12px}.cs p{font-size:16px;line-height:1.35}.cs p b{color:var(--c0)}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.tool{display:flex;gap:16px;padding:12px;align-items:center}.win{width:300px;flex:none;border-radius:10px;overflow:hidden;border:1px solid var(--ln);background:#fff}.win>div{height:24px;background:var(--k);display:flex;gap:5px;align-items:center;padding:0 9px}.win>div i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.7)}
+.tool h3{font-size:22px;margin-bottom:4px}.tool p{font-size:16px;line-height:1.35;color:var(--mut)}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px}.pc h3{font-size:26px;margin-bottom:12px}.it{display:flex;gap:14px;align-items:center;padding:13px 18px;border-radius:14px;margin-bottom:11px;font-size:20px;font-weight:600;background:#fff;border-left:7px solid var(--k)}.it i{font-style:normal;font-size:24px}
+.cl{margin-top:20px}.cl .cd h3{font-size:24px;margin:6px 0 8px}.cl .cd p{font-size:18px;line-height:1.4}
+.fin{margin-top:18px;padding:16px 26px;border-radius:18px;background:var(--ink);color:#fff;font-size:26px;font-weight:800}
+.ref{font-size:14px;color:var(--mut);line-height:1.45;margin-top:12px}
+#pb{position:absolute;left:0;top:0;height:5px;background:var(--c2);transition:width .5s;z-index:9}
+#hud{position:absolute;right:20px;bottom:10px;z-index:9;display:flex;gap:8px;align-items:center;font-size:15px;color:#7F93AD}#hud button{border:0;background:rgba(127,147,173,.25);color:inherit;width:30px;height:26px;border-radius:7px;cursor:pointer;font-size:14px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01s!important;transition-delay:0s!important;animation:none!important}}
+</style></head><body><div id="st"><div id="pb"></div>
+
+<section class="s dark" id="s1"><div class="hero"><div>
+<div class="a" style="--d:.1s;font-size:20px;color:var(--c2);font-weight:800">Управління проєктами</div>
+<h1 class="a" style="--d:.3s;margin-top:12px">Діаграма Ганта як інструмент планування та контролю термінів виконання проєкту</h1>
+<div class="who a" style="--d:.8s">Підготувала: <b>Первак Марія</b><br><span class="sub">Студентка групи ЕКММ-11с, ЛНУ імені Івана Франка</span></div></div>
+<div id="g1"></div></div></section>
+
+<section class="s" id="s2"><h2 class="a">Історія та сутність діаграми Ганта</h2>
+<div class="r2"><div class="a" style="--d:.3s"><div class="ph" data-img="gantt" style="--a:#2F5BEA;--b:#12263F;height:268px;font-size:80px">👤</div><p class="cap">Генрі Лоуренс Гант (1861–1919) — американський інженер-механік і консультант з управління</p></div>
+<div><p class="def a" style="--d:.5s">Діаграма Ганта — це горизонтальний графік: кожне завдання проєкту показано смугою на шкалі часу, а довжина смуги дорівнює тривалості роботи.</p>
+<div class="fx a" style="--d:.8s"><i>🎓</i><span>Гант працював із Фредеріком Тейлором, засновником наукового менеджменту, і шукав спосіб бачити хід робіт «з першого погляду».</span></div>
+<div class="fx a" style="--d:1.1s"><i>🎯</i><span>Навіщо: бачити, що виконується, коли і в якій послідовності, та вчасно помічати затримки.</span></div>
+<div class="fx a" style="--d:1.4s"><i>🧭</i><span>Сьогодні це базова мова календарного планування в програмах для управління проєктами.</span></div></div></div>
+<div class="tl a" style="--d:.4s"><div><b>1861</b>народився Генрі Гант</div><div><b>≈1896</b>Кароль Адамецький створює схожий «гармонограм»</div><div><b>1910-ті</b>Гант розвиває стрічкові графіки робіт</div><div><b>1922</b>Воллес Кларк видає книгу «The Gantt Chart»</div><div><b>1984</b>перша версія Microsoft Project для DOS</div></div>
+<div class="src">Джерела: Encyclopaedia Britannica; Wikipedia — Gantt chart, Karol Adamiecki, Microsoft Project</div></section>
+
+<section class="s" id="s3"><h2 class="a">Будова діаграми Ганта</h2><p class="sub a" style="--d:.2s">Умовний проєкт «Запуск вебсайту»: з чого складається діаграма</p>
+<div style="display:grid;grid-template-columns:750px 1fr;gap:22px;margin-top:6px;align-items:center"><div id="g3"></div>
+<div class="lg">
+<div class="a" style="--d:3.2s"><span class="n">1</span><span><b>Завдання й етапи</b>рядки зліва: що потрібно зробити</span></div>
+<div class="a" style="--d:3.65s"><span class="n">2</span><span><b>Часова шкала</b>тижні (або дні, місяці) зверху</span></div>
+<div class="a" style="--d:4.1s"><span class="n">3</span><span><b>Смуги</b>довжина = тривалість роботи</span></div>
+<div class="a" style="--d:4.55s"><span class="n">4</span><span><b>Залежності</b>стрілка: наступне завдання стартує після попереднього</span></div>
+<div class="a" style="--d:5s"><span class="n">5</span><span><b>Контрольна точка</b>ромб (milestone): важлива подія без тривалості</span></div>
+<div class="a" style="--d:5.45s"><span class="n">6</span><span><b>Відсоток виконання</b>темніша частина смуги та лінія «Сьогодні»</span></div></div></div></section>
+
+<section class="s" id="s4"><h2 class="a">Як працює діаграма Ганта?</h2><p class="sub a" style="--d:.2s">Від списку робіт до живого графіка: п'ять кроків</p>
+<div class="steps"><div class="ln"></div>
+<div class="stp a" style="--d:.6s"><span class="n">1</span><span class="ic" style="--d:.6s">📝</span><h3>Визначте завдання</h3><p>Розбийте проєкт на етапи й завдання та оцініть тривалість кожного.</p></div>
+<div class="stp a" style="--d:1.2s"><span class="n">2</span><span class="ic" style="--d:1.2s">🔗</span><h3>Задайте послідовність</h3><p>Що від чого залежить і що можна робити паралельно.</p></div>
+<div class="stp a" style="--d:1.8s"><span class="n">3</span><span class="ic" style="--d:1.8s">👥</span><h3>Розподіліть ролі</h3><p>Кожне завдання має відповідального виконавця.</p></div>
+<div class="stp a" style="--d:2.4s"><span class="n">4</span><span class="ic" style="--d:2.4s">📊</span><h3>Побудуйте графік</h3><p>Нанесіть смуги на шкалу, додайте стрілки й контрольні точки.</p></div>
+<div class="stp a" style="--d:3s"><span class="n">5</span><span class="ic" style="--d:3s">🔄</span><h3>Контролюйте й оновлюйте</h3><p>Позначайте % виконання; при затримці коригуйте наступні роботи.</p></div></div>
+<div class="fin a" style="--d:3.8s;margin-top:44px">Крок 5 повторюється весь проєкт: графік працює, лише поки його оновлюють.</div></section>
+
+<section class="s" id="s5"><h2 class="a">Практичний приклад: міжнародна студентська конференція</h2>
+<div id="g5" style="margin-top:6px"></div>
+<div class="chips a" style="--d:6.2s"><span><i style="background:var(--c0)"></i>Підготовка</span><span><i style="background:var(--c1)"></i>Організація</span><span><i style="background:var(--c2)"></i>Промоція</span><span><i style="background:var(--c3)"></i>Проведення</span><span>◆ 2 контрольні точки</span><span>⏱ Загальний термін: 12 тижнів</span><span>⇉ Паралельно: майданчик ∥ програма, реєстрація ∥ промо</span></div></section>
+
+<section class="s" id="s6"><h2 class="a">Де застосовується діаграма Ганта?</h2>
+<div class="g6">
+<div class="cd f a" style="--d:.3s"><div class="ph" data-img="build" style="--a:#F2A33A;--b:#E5536B">🏗️</div><div><h3>Будівництво</h3><p>Житловий комплекс: фундамент → каркас → мережі → оздоблення. Видно, що бетон треба залити до монтажу.</p></div></div>
+<div class="cd f a" style="--d:.6s"><div class="ph" data-img="it" style="--a:#2F5BEA;--b:#14A39A">💻</div><div><h3>IT</h3><p>Розробка застосунку: дизайн, серверна частина й тестування в спринтах — частина робіт іде паралельно.</p></div></div>
+<div class="cd f a" style="--d:.9s"><div class="ph" data-img="marketing" style="--a:#E5536B;--b:#2F5BEA">📣</div><div><h3>Маркетинг</h3><p>Запуск продукту: контент-план, реклама й прес-реліз мають бути готові до дати старту.</p></div></div>
+<div class="cd f a" style="--d:1.2s"><div class="ph" data-img="tourism" style="--a:#14A39A;--b:#2F5BEA">✈️</div><div><h3>Туризм</h3><p>Підготовка туру: бронювання, візи й трансфери з жорсткими дедлайнами.</p></div></div>
+<div class="cd f a" style="--d:1.5s"><div class="ph" data-img="events" style="--a:#F2A33A;--b:#2F5BEA">🎪</div><div><h3>Організація заходів</h3><p>Фестиваль: сцена, підрядники й волонтери, узгоджені з днем відкриття.</p></div></div>
+<div class="cd f a" style="--d:1.8s"><div class="ph" data-img="factory" style="--a:#12263F;--b:#2F5BEA">🏭</div><div><h3>Виробництво</h3><p>Нова лінія: закупівля обладнання, монтаж, пробна партія, запуск серії.</p></div></div></div></section>
+
+<section class="s" id="s7"><h2 class="a">Реальні приклади у відомих проєктах</h2>
+<div class="g3 cs">
+<div class="cd a" style="--d:.3s"><h3><div class="ph" data-img="nasa" style="--a:#12263F;--b:#2F5BEA">🚀</div>NASA</h3><p><b>Координація:</b> космічні й інженерні проєкти з багатьма взаємозалежними роботами. <b>Користь:</b> є офіційна настанова зі складання графіків (SP-2010-3403), а матеріали NASA називають діаграму Ганта корисним інструментом планування.</p></div>
+<div class="cd a" style="--d:.6s"><h3><div class="ph" data-img="daxing" style="--a:#14A39A;--b:#12263F">🛫</div>Аеропорт Daxing</h3><p><b>Координація:</b> будівництво 2014–2019, термінал 700 000 м², понад 40 000 працівників на піку. <b>Користь:</b> синхронізувати етапи до відкриття 25.09.2019.</p></div>
+<div class="cd a" style="--d:.9s"><h3><div class="ph" data-img="msproject" style="--a:#2F5BEA;--b:#14A39A">🪟</div>Microsoft Project</h3><p><b>Що це:</b> продукт Microsoft для планування проєктів, у якому діаграма Ганта є основним поданням графіка. <b>Користь:</b> завдання, терміни й ресурси в одному плані.</p></div>
+<div class="cd a" style="--d:1.2s"><h3><div class="ph" data-img="dam" style="--a:#F2A33A;--b:#12263F">🏗️</div>Гребля Гувера</h3><p><b>Координація:</b> будівництво 1931–1936 і система міжштатних автомагістралей США; за Wikipedia, там застосовували діаграми Ганта. <b>Користь:</b> контроль підрядників і термінів.</p></div>
+<div class="cd a" style="--d:1.5s"><h3><div class="ph" data-img="itteam" style="--a:#E5536B;--b:#2F5BEA">💻</div>IT-команди</h3><p><b>Координація:</b> дизайн, розробка, тестування, релізи. <b>Користь:</b> у трекерах задач (Jira, Asana) є вид Timeline, схожий на діаграму Ганта.</p></div>
+<div class="cd a" style="--d:1.8s;background:#FFF6E3;border-color:#F2D49A"><h3>⚠️ Про достовірність</h3><p>Ми не стверджуємо, що Daxing чи інші організації керувалися саме діаграмою Ганта: це зазначено лише там, де підтверджено джерелами.</p></div></div>
+<div class="src">Джерела: swehb.nasa.gov; NASA/SP-2010-3403; english.www.gov.cn (Xinhua, 26.09.2019); CNN Travel; Wikipedia — Gantt chart</div></section>
+
+<section class="s" id="s8"><h2 class="a">Програми для створення діаграм Ганта</h2>
+<div class="tools">
+<div class="cd tool a" style="--d:.3s"><div class="win" style="--k:#2B7A3D"><div><i></i><i></i><i></i></div><span id="m1"></span></div><span><h3>Microsoft Project</h3><p>Настільний застосунок для складних проєктів: ресурси, базові плани, критичний шлях.</p></span></div>
+<div class="cd tool a" style="--d:.8s"><div class="win" style="--k:#F06A6A"><div><i></i><i></i><i></i></div><span id="m2"></span></div><span><h3>Asana</h3><p>Хмарна платформа для команд: вид Timeline із залежностями поруч зі списками й дошками.</p></span></div>
+<div class="cd tool a" style="--d:1.3s"><div class="win" style="--k:#2D8CFF"><div><i></i><i></i><i></i></div><span id="m3"></span></div><span><h3>TeamGantt</h3><p>Онлайн-сервіс, сфокусований саме на діаграмах Ганта: перетягування смуг, спільний доступ.</p></span></div>
+<div class="cd tool a" style="--d:1.8s"><div class="win" style="--k:#0B6EF3"><div><i></i><i></i><i></i></div><span id="m4"></span></div><span><h3>Smartsheet</h3><p>Таблиця, схожа на Excel, із вбудованим видом Ганта, автоматизацією й узгодженнями.</p></span></div></div>
+<div class="src">Схеми інтерфейсів умовні. Описи — за офіційними сайтами продуктів (перевірте актуальність перед захистом).</div></section>
+
+<section class="s" id="s9"><h2 class="a">Переваги, недоліки та обмеження</h2>
+<div class="pc"><div><h3 class="a" style="--d:.2s;color:var(--c1)">Переваги</h3>
+<div class="it a" style="--k:var(--c1);--d:.5s"><i>👁️</i>Наочність планування</div><div class="it a" style="--k:var(--c1);--d:.8s"><i>⏱️</i>Контроль строків</div><div class="it a" style="--k:var(--c1);--d:1.1s"><i>🚨</i>Виявлення затримок</div><div class="it a" style="--k:var(--c1);--d:1.4s"><i>🤝</i>Координація команди</div><div class="it a" style="--k:var(--c1);--d:1.7s"><i>🔗</i>Видимі залежності завдань</div></div>
+<div><h3 class="a" style="--d:.2s;color:var(--c3)">Недоліки й обмеження</h3>
+<div class="it a" style="--k:var(--c3);--d:.65s"><i>🧩</i>Громіздка для дуже великих проєктів</div><div class="it a" style="--k:var(--c3);--d:.95s"><i>🔁</i>Потребує постійного оновлення</div><div class="it a" style="--k:var(--c3);--d:1.25s"><i>🎯</i>Залежить від точності початкового плану</div><div class="it a" style="--k:var(--c3);--d:1.55s"><i>🌪️</i>Слабка за умов постійних змін</div></div></div></section>
+
+<section class="s" id="s10"><h2 class="a">Висновки</h2>
+<div class="g3 cl">
+<div class="cd a" style="--d:.3s"><span style="font-size:40px">🗺️</span><h3>Значення</h3><p>Робить план видимим: завдання, терміни й залежності на одній сторінці.</p></div>
+<div class="cd a" style="--d:.7s"><span style="font-size:40px">✅</span><h3>Коли доцільна</h3><p>Для проєктів із чітким обсягом і датами: будівництво, заходи, виробництво, релізи. За частих змін — разом із гнучкими методами.</p></div>
+<div class="cd a" style="--d:1.1s"><span style="font-size:40px">📈</span><h3>Чому актуальна</h3><p>Їй понад сто років, але сьогодні вона вбудована в цифрові інструменти зі спільним доступом.</p></div></div>
+<div class="fin a" style="--d:1.6s">Діаграма Ганта — спільна мова команди про час.</div>
+<p class="ref a" style="--d:2s"><b>Джерела:</b> Encyclopaedia Britannica та Wikipedia (Gantt chart; Karol Adamiecki; Microsoft Project); NASA Software Engineering Handbook (swehb.nasa.gov); NASA/SP-2010-3403 Schedule Management Handbook; Xinhua / english.www.gov.cn, 26.09.2019 (Daxing); CNN Travel (Daxing); сайти Asana, TeamGantt, Smartsheet, Microsoft.</p></section>
+
+<div id="hud"><button id="pv">◀</button><span id="cn"></span><button id="nx">▶</button></div></div>
+<script>
+const CL=['#2F5BEA','#14A39A','#F2A33A','#E5536B'];
+function gantt(id,o){const{rows,W,lw,weeks,rh=44,hh=44,fs=18,dep=[],notes=[],today,lx=8,b=.5,st=.35,cols=CL,wl=1}=o,pr=20,cw=(W-lw-pr)/weeks,bh=rh*.54,H=hh+rows.length*rh+8,X=w=>lw+w*cw,Y=i=>hh+i*rh+rh/2;
+let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" font-family="Onest,sans-serif">`;
+rows.forEach((r,i)=>{if(i%2==0)s+=`<rect class="z" x="0" y="${hh+i*rh}" width="${W}" height="${rh}"/>`});
+for(let w=0;w<=weeks;w++){s+=`<line class="g" x1="${X(w)}" x2="${X(w)}" y1="${hh-8}" y2="${H-8}"/>`;if(wl&&w<weeks)s+=`<text class="wk" x="${X(w+.5)}" y="${hh-14}" font-size="${fs-3}">Т${w+1}</text>`}
+rows.forEach((r,i)=>{if(r.n)s+=`<text class="lbl" x="${lx}" y="${Y(i)+fs*.33}" font-size="${fs}">${r.n}</text>`});
+rows.forEach((r,i)=>{const d=b+i*st,x=X(r.s),y=Y(i);
+if(r.m)s+=`<g style="--d:${d}s"><circle class="ring" cx="${x}" cy="${y}" r="12"/><polygon class="ms" points="${x},${y-12} ${x+12},${y} ${x},${y+12} ${x-12},${y}"/></g>`;
+else{const w=r.d*cw;s+=`<rect class="bar" style="--d:${d}s" x="${x}" y="${y-bh/2}" width="${w}" height="${bh}" rx="6" fill="${cols[r.c||0]}"/>`;if(r.p)s+=`<rect class="bar" style="--d:${d+.15}s" x="${x}" y="${y-bh/2}" width="${w*r.p}" height="${bh}" rx="6" fill="rgba(0,0,0,.32)"/>`}});
+dep.forEach(([a,c])=>{const A=rows[a],B=rows[c],x=X(B.s),y1=Y(a)+(A.m?12:bh/2),y2=Y(c)-(B.m?12:bh/2),d=b+a*st+.75;s+=`<path class="dp" pathLength="1" style="--d:${d}s" d="M${x},${y1} V${y2-7}"/><polygon class="ar fd" style="--d:${d+.35}s" points="${x},${y2} ${x-5},${y2-8} ${x+5},${y2-8}"/>`});
+if(today!=null)s+=`<g class="fd" style="--d:${b+rows.length*st+.4}s"><line x1="${X(today)}" x2="${X(today)}" y1="${hh-6}" y2="${H-8}" stroke="${CL[3]}" stroke-width="2.5" stroke-dasharray="6 5"/><text x="${X(today)+6}" y="${H-14}" font-size="${fs-3}" fill="${CL[3]}" font-weight="800">Сьогодні</text></g>`;
+notes.forEach(([c,r,t],k)=>{const x=X(c),y=hh+r*rh+rh/2;s+=`<g class="fd" style="--d:${o.nb+k*.45}s"><circle cx="${x}" cy="${y}" r="12" fill="#12263F" stroke="#fff" stroke-width="2"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">${t}</text></g>`});
+document.getElementById(id).innerHTML=s+'</svg>'}
+// 1 — титульний
+gantt('g1',{W:640,lw:10,weeks:12,rh:56,hh:10,wl:0,st:.3,b:1,rows:[{s:0,d:3,c:0},{s:3,d:3,c:1},{s:3,d:5,c:2},{s:6,d:3,c:1},{s:8,d:3,c:3},{s:11,m:1}],dep:[[0,1],[0,2],[1,3],[2,4],[4,5]]});
+// 3 — будова
+gantt('g3',{W:780,lw:170,weeks:10,rh:52,hh:56,lx:34,today:6.5,nb:3.2,rows:[{n:'Планування',s:0,d:2,c:0,p:1},{n:'Дизайн',s:2,d:3,c:1,p:1},{n:'Розробка',s:5,d:3,c:2,p:.5},{n:'Маркетинг',s:3,d:5,c:3,p:.7},{n:'Тестування',s:8,d:2,c:0},{n:'Запуск',s:10,m:1}],dep:[[0,1],[1,2],[4,5]],notes:[[-2.6,0,1],[9.5,-1.2,2],[3.5,1,3],[4.55,1.5,4],[9.35,5,5],[6.9,2,6]]});
+// 5 — конференція
+gantt('g5',{W:1152,lw:250,weeks:12,rh:44,hh:44,st:.5,rows:[{n:'Концепція та бюджет',s:0,d:2,c:0},{n:'Бюджет затверджено',s:2,m:1},{n:'Майданчик і підрядники',s:2,d:3,c:1},{n:'Промокампанія',s:5,d:5,c:2},{n:'Програма та спікери',s:2,d:4,c:1},{n:'Реєстрація учасників',s:6,d:4,c:1},{n:'Підготовка й репетиція',s:10,d:1,c:3},{n:'Конференція',s:11,d:1,c:3},{n:'Конференцію проведено',s:12,m:1}],dep:[[0,1],[1,2],[1,4],[2,3],[4,5],[5,6],[3,6],[6,7],[7,8]]});
+// 8 — макети інтерфейсів
+const mock=(id,c)=>gantt(id,{W:300,lw:78,weeks:8,rh:34,hh:22,fs:13,lx:6,wl:0,cols:[c],b:.5,st:.3,rows:[{n:'Дизайн',s:0,d:3,p:1},{n:'Розробка',s:2,d:4,p:.5},{n:'Тести',s:5,d:2},{n:'Реліз',s:7,m:1}],dep:[[0,1]]});
+mock('m1','#2B7A3D');mock('m2','#F06A6A');mock('m3','#2D8CFF');mock('m4','#0B6EF3');
+// фото: якщо є файли img/<назва>.jpg — підставляються автоматично
+document.querySelectorAll('[data-img]').forEach(e=>{const i=new Image();i.onload=()=>{e.style.backgroundImage=`url(${i.src})`;e.classList.add('real')};i.src='img/'+e.dataset.img+'.jpg'});
+// навігація
+const S=[...document.querySelectorAll('.s')],st=document.getElementById('st');let cur=0;
+function go(n){n=Math.max(0,Math.min(S.length-1,n));S.forEach((e,i)=>{e.classList.toggle('on',i==n);e.classList.toggle('past',i<n)});cur=n;document.getElementById('pb').style.width=(n+1)/S.length*100+'%';document.getElementById('cn').textContent=(n+1)+' / '+S.length;history.replaceState(null,'','#'+(n+1))}
+function fit(){st.style.transform=`scale(${Math.min(innerWidth/1280,innerHeight/720)})`}
+addEventListener('resize',fit);fit();
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(cur+1)}if(['ArrowLeft','PageUp','Backspace'].includes(e.key))go(cur-1);if(e.key=='Home')go(0);if(e.key=='End')go(S.length-1)});
+document.getElementById('nx').onclick=()=>go(cur+1);document.getElementById('pv').onclick=()=>go(cur-1);
+let tx;addEventListener('touchstart',e=>tx=e.touches[0].clientX);addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1))});
+document.fonts&&document.fonts.ready.then(()=>{});
+setTimeout(()=>go((parseInt(location.hash.slice(1))||1)-1),150);
+</script></body></html>
